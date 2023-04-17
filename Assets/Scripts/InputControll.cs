@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,10 +12,23 @@ public class InputControll : MonoBehaviour
     public Vector2 Movement { get; private set; }
     public Vector2 MouseInput { get; private set; }
 
+    private void Awake()
+    {
+        CursorLockMode cursor = CursorLockMode.Locked;
+    }
 
     private void Update()
     {
         ReadMouseInput();
+        ReadKeyboardInput();
+    }
+
+    private void ReadKeyboardInput()
+    {
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            PlayerEvents.OnInteraction.Invoke();
+        }
     }
 
     private void ReadMouseInput()
