@@ -12,6 +12,5 @@ public class Chest : MonoBehaviour, IInteractable
         Debug.Log("Interacted with chest!");
         onInteract.Invoke();
     }
-
     
 }

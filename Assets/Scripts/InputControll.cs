@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -20,15 +18,6 @@ public class InputControll : MonoBehaviour
     private void Update()
     {
         ReadMouseInput();
-        ReadKeyboardInput();
-    }
-
-    private void ReadKeyboardInput()
-    {
-        if(Input.GetKeyDown(KeyCode.E))
-        {
-            PlayerEvents.OnInteraction.Invoke();
-        }
     }
 
     private void ReadMouseInput()
@@ -43,4 +32,10 @@ public class InputControll : MonoBehaviour
     {
         Movement = context.ReadValue<Vector2>();
     }
+
+    public void Interact()
+    {
+        PlayerEvents.OnInteraction.Invoke();
+    }
+
 }

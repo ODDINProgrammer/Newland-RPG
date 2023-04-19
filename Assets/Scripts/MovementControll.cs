@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class MovementControll : MonoBehaviour, ICanMove
@@ -6,6 +7,12 @@ public class MovementControll : MonoBehaviour, ICanMove
     private Player player;
 
     private float yRot;
+
+    [SerializeField]
+    private Transform groundedChecker;
+    private bool isGrounded = true;
+    [SerializeField]
+    private float jumpForce;
 
     private void Awake()
     {
@@ -28,6 +35,14 @@ public class MovementControll : MonoBehaviour, ICanMove
         transform.localRotation = Quaternion.Euler(0, yRot, 0);
     }
 
+    public void Jump()
+    {
+        if(isGrounded)
+        {
+            player.RB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        }
+    }
+
     public void Move()
     {
         float movementSpeed = player.MovementSpeed;
@@ -37,4 +52,5 @@ public class MovementControll : MonoBehaviour, ICanMove
         transform.Translate(newPosition * movementSpeed * Time.deltaTime);
     }
 
+    
 }

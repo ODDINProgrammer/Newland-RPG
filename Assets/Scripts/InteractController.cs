@@ -14,7 +14,7 @@ public class InteractController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.GetComponent<IInteractable>() == null) return;
-
+        
         go = other.gameObject.GetComponent<IInteractable>();
     }
 
