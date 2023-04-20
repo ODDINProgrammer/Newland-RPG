@@ -20,7 +20,7 @@
                     "id": "b44c3f78-e588-4a07-8a39-76c995b2b3b2",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Press",
+                    "interactions": "",
                     "initialStateCheck": false
                 },
                 {
@@ -43,12 +43,12 @@
                 },
                 {
                     "name": "Left click",
-                    "type": "Value",
+                    "type": "Button",
                     "id": "c8e3020e-14a5-49d0-bcfe-45083bef51c1",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": true
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -221,9 +221,9 @@
                     "name": "",
                     "id": "3c30f1c3-2a8d-4e48-a3d3-1a0536ff43e0",
                     "path": "<Mouse>/leftButton",
-                    "interactions": "Hold(duration=0.4,pressPoint=0.5),Press",
+                    "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Keyboard&Mouse",
                     "action": "Left click",
                     "isComposite": false,
                     "isPartOfComposite": false

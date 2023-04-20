@@ -10,6 +10,8 @@ public class InputControll : MonoBehaviour
     public Vector2 Movement { get; private set; }
     public Vector2 MouseInput { get; private set; }
 
+    private InputAction.CallbackContext context;
+
     private void Awake()
     {
         CursorLockMode cursor = CursorLockMode.Locked;
@@ -33,9 +35,27 @@ public class InputControll : MonoBehaviour
         Movement = context.ReadValue<Vector2>();
     }
 
-    public void Interact()
+    public void OnInteract(InputAction.CallbackContext context)
     {
-        PlayerEvents.OnInteraction.Invoke();
+        if (context.performed)
+        {
+            PlayerEvents.OnInteraction.Invoke();
+        }
     }
 
+    public void OnItemUse(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            PlayerEvents.OnItemUse.Invoke();
+        }
+    }
+
+    public void OnInventory(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            PlayerEvents.OnInventory.Invoke();
+        }
+    }
 }
